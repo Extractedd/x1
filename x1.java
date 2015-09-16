@@ -8,7 +8,7 @@ float horizon;
 
 //// SETUP:  window size, initialization (start in middle of screen).
 void setup() {
-  size( 640,480);
+ size(600,600);
   horizon=  height/4;
   x=  width/2;
   y=  height/2;
@@ -18,32 +18,99 @@ void setup() {
 
 //// NEXT FRAME:  scene, action, show.
 void draw() {
-  //// SCENE:  sky, sun, tree, house, etc.
-  background( 100,150,200 );                // sky
-  fill( 255,255,0 );
-  ellipse( width*3/4, height/8, 40,40 );    // sun
-  // Grass
-  fill( 100,200,100 );
-  rect( 0,horizon, width,height*3/4 );      // grass.
-  
-  /* INSERT YOUR CODE HERE! */
-  triangle( 150,horizon, 120,horizon-50, 180,horizon-50  );  // tree
-  text( "This is NOT a good tree; please fix it!", 150,horizon );
-                                            // house
+//// Background & Size
 
-  fill(0);
-  text( "My name is Mud", 10,height-20 );                                          
-                                            
-  //// ACTION:  move (x,y) coordinates.
+
+background(255);
+
+//// Sky
+
+fill(0,200,200);
+rectMode(CENTER);
+rect(0,0, 1200,500);
+
+//// Cloud
+float cloudX=50, cloudY=50, cloudW=100, cloudH=40;
+  cloudX=  x + dx;
+  y=  y + dy;
+  
+fill(255);
+ellipse(cloudX, cloudY, cloudW, cloudH);
+
+
+//// House
+
+fill(117,0,0);
+rectMode(CENTER);
+rect(300,200,  100,100);
+
+//// Roof
+
+fill(117,0,0);
+triangle(300,90,  380,150,  220,150);
+
+//// Door
+
+fill(150);
+rectMode(CENTER);
+rect(300,225, 35,50);
+
+fill(10);
+ellipseMode(CENTER);
+ellipse(312,228, 6,6);
+
+//// Window
+
+fill(220);
+rectMode(CENTER);
+rect(330,180, 35,35);
+
+fill(0);
+line(313,180, 347,180);
+line(330,163, 330,196);
+
+//// Grass
+
+fill(100,200,100);
+rectMode(CENTER);
+rect(0,495,  1200,490);
+
+
+//// Sun
+
+fill(255,255,0);
+ellipseMode(CENTER);
+ellipse(560,40, 70,70);
+
+
+//// Tree
+
+fill(127,70,0);
+rectMode(CENTER);
+rect(130,200, 50,100);
+
+fill(100,200,100);
+ellipse(100,150, 60,60);
+ellipse(160,150, 60,60);
+ellipse(130,110, 60,60);
+
+
+//// Tree #2
+
+fill(127,70,0);
+rectMode(CENTER);
+rect(130,200, 50,100);
+
+fill(100,200,100);
+ellipse(100,150, 60,60);
+ellipse(160,150, 60,60);
+ellipse(130,110, 60,60);
+
+
+//// ACTION:  move (x,y) coordinates.
   x=  x + dx;
   y=  y + dy;
   
-  //// SHOW:  display the creature at (x,y)
-
-  /* INSERT YOUR CODE HERE! */
-  fill(255,0,0); rect( x,y, 30,50 );        /* REPLACE THIS WITH YOUR OWN CODE! */
-  text( "Fred", x,y );
-
 }
 
 
@@ -61,6 +128,9 @@ void keyPressed() {
     exit();                           // press 'q' key to QUIT.
   }
 }
+
+
+
    
-   
+
 
